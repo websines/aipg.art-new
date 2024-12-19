@@ -33,36 +33,49 @@ export function ImageComments() {
 
   return (
     <div className="space-y-4">
-      <ScrollArea className="h-[300px]">
+      <ScrollArea className="h-[200px] pr-4">
         <div className="space-y-4">
           {comments.map((comment) => (
-            <div key={comment.id} className="flex gap-4">
-              <Avatar>
-                <AvatarFallback>
+            <div key={comment.id} className="flex gap-3">
+              <Avatar className="h-8 w-8">
+                <AvatarFallback className="text-xs">
                   {comment.user[0].toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-medium">{comment.user}</span>
+                  <span className="text-sm font-medium">{comment.user}</span>
                   <span className="text-xs text-muted-foreground">
                     {comment.createdAt.toLocaleDateString()}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground">{comment.text}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{comment.text}</p>
               </div>
             </div>
           ))}
+          {comments.length === 0 && (
+            <p className="text-center text-sm text-muted-foreground">
+              No comments yet. Be the first to comment!
+            </p>
+          )}
         </div>
       </ScrollArea>
-      <form onSubmit={(e) => { e.preventDefault(); handleAddComment(newComment); }} className="flex gap-2">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleAddComment(newComment)
+        }}
+        className="flex gap-2"
+      >
         <Textarea
-          placeholder="Add a comment..."
+          placeholder="Write a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-          className="flex-1"
+          className="min-h-[80px] flex-1 resize-none"
         />
-        <Button type="submit">Post</Button>
+        <Button type="submit" className="shrink-0">
+          Post
+        </Button>
       </form>
     </div>
   )

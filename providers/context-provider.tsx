@@ -10,12 +10,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <SidebarProvider defaultOpen>
-        <AppSidebar />
-        <main className="min-h-screen lg:pl-64">
-          <div className="h-full px-4 py-16 lg:px-8 lg:py-8">
-            {children}
-          </div>
-        </main>
+        <div className="min-h-screen">
+          <AppSidebar />
+          <main className="min-h-screen lg:pl-64">
+            <div className="container mx-auto px-4 py-4 lg:px-8 lg:py-8">
+              {children}
+            </div>
+          </main>
+        </div>
       </SidebarProvider>
     </QueryClientProvider>
   );

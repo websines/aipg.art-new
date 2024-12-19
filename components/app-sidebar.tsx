@@ -1,4 +1,5 @@
 'use client'
+
 import { Sidebar } from "@/components/ui/sidebar"
 import { navItems } from "./nav-items"
 import Link from "next/link"
@@ -14,7 +15,7 @@ function DesktopSidebar() {
   const pathname = usePathname()
 
   return (
-    <Sidebar className="fixed top-0 left-0 z-40 hidden h-screen border-r lg:block">
+    <Sidebar className="fixed left-0 top-0 z-30 hidden h-screen w-64 border-r lg:block">
       <NavContent pathname={pathname} />
     </Sidebar>
   )
@@ -29,12 +30,12 @@ function MobileSidebar() {
         <Button
           variant="ghost"
           size="icon"
-          className="fixed left-4 top-4 z-40 lg:hidden"
+          className="fixed left-4 top-4 z-40 h-8 w-8 lg:hidden"
         >
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[300px] p-0">
+      <SheetContent side="left" className="w-64 p-0">
         <NavContent pathname={pathname} />
       </SheetContent>
     </Sheet>
@@ -43,14 +44,14 @@ function MobileSidebar() {
 
 function NavContent({ pathname }: { pathname: string }) {
   return (
-    <div className="flex h-full flex-col gap-4">
-      <div className="flex h-[60px] items-center px-6">
+    <div className="flex h-full flex-col">
+      <div className="flex h-14 items-center border-b px-4">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <span className="text-xl">AIPG Art</span>
+          <span className="text-lg">AIPG Art</span>
         </Link>
       </div>
-      <div className="flex-1 overflow-auto">
-        <div className="space-y-1 px-3">
+      <div className="flex-1 overflow-auto p-3">
+        <nav className="space-y-1">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}>
               <Button
@@ -65,7 +66,7 @@ function NavContent({ pathname }: { pathname: string }) {
               </Button>
             </Link>
           ))}
-        </div>
+        </nav>
       </div>
     </div>
   )
