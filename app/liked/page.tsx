@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ImageCard } from "@/components/image-card"
+import { PageHeader } from "@/components/page-header"
 import { type Image } from "@/types"
 
 // Mock data for testing - in a real app, this would come from an API
@@ -46,15 +47,13 @@ export default function LikedImagesPage() {
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">Liked Images</h1>
-        <p className="text-muted-foreground">
-          Images you&apos;ve liked will appear here
-        </p>
-      </div>
-      
-      <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
+    <div className="space-y-8">
+      <PageHeader
+        title="Liked Images"
+        description="Images you've liked will appear here"
+        breadcrumbs={[{ title: "Liked" }]}
+      />
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {images.map((image) => (
           <ImageCard
             key={image.id}

@@ -15,7 +15,7 @@ function DesktopSidebar() {
   const pathname = usePathname()
 
   return (
-    <Sidebar className="fixed left-0 top-0 z-30 hidden h-screen w-64 border-r lg:block">
+    <Sidebar className="fixed left-0 top-0 z-30 hidden h-screen w-48 border-r bg-background lg:block">
       <NavContent pathname={pathname} />
     </Sidebar>
   )
@@ -28,14 +28,14 @@ function MobileSidebar() {
     <Sheet>
       <SheetTrigger asChild>
         <Button
-          variant="ghost"
+          variant="outline"
           size="icon"
-          className="fixed left-4 top-4 z-40 h-8 w-8 lg:hidden"
+          className="fixed left-4 top-4 z-40 h-10 w-10 rounded-full border bg-background shadow-sm lg:hidden"
         >
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-64 p-0">
+      <SheetContent side="left" className="w-48 p-0">
         <NavContent pathname={pathname} />
       </SheetContent>
     </Sheet>
@@ -57,7 +57,7 @@ function NavContent({ pathname }: { pathname: string }) {
               <Button
                 variant={pathname === item.href ? "secondary" : "ghost"}
                 className={cn(
-                  "w-full justify-start gap-2",
+                  "w-full justify-start gap-2 px-3 py-2",
                   pathname === item.href && "bg-secondary"
                 )}
               >
