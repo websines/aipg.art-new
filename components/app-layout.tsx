@@ -2,6 +2,8 @@
 
 import { cn } from "@/lib/utils"
 import { Header } from "./header"
+import { useIsMobile } from "@/hooks/use-mobile"
+import { ClientOnly } from "./client-only"
 
 interface AppLayoutProps {
   children: React.ReactNode
@@ -9,14 +11,20 @@ interface AppLayoutProps {
 }
 
 export function AppLayout({ children, className }: AppLayoutProps) {
+  const isMobile = useIsMobile()
+
   return (
     <div className="relative flex min-h-screen">
-      {/* Sidebar space */}
-      <div className="hidden w-48 shrink-0 lg:block" />
       {/* Main content */}
       <main className="flex-1">
-        <Header />
-        <div className={cn("container mx-auto p-4 pt-20 lg:p-8 lg:pt-8", className)}>
+        <ClientOnly>
+          {isMobile && <Header />}
+        </ClientOnly>
+        <div className={cn(
+          "container mx-auto p-4 lg:p-8",
+          isMobile && "pt-20",
+          className
+        )}>
           {children}
         </div>
       </main>

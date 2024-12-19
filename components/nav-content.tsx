@@ -12,7 +12,7 @@ interface NavContentProps {
 export function NavContent({ pathname }: NavContentProps) {
   return (
     <div className="flex h-full flex-col">
-      <div className="flex h-14 items-center border-b px-4 lg:h-16">
+      <div className="flex h-14 items-center border-b px-4">
         <Link href="/" className="flex items-center gap-2 font-bold">
           <span className="text-lg">AIPG Art</span>
         </Link>

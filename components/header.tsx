@@ -18,13 +18,13 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="h-9 w-9 lg:hidden"
+              className="h-9 w-9"
             >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-48 p-0">
+          <SheetContent side="left" className="w-64 p-0">
             <SheetHeader className="sr-only">
               <SheetTitle>Navigation Menu</SheetTitle>
             </SheetHeader>
@@ -32,11 +32,11 @@ export function Header() {
           </SheetContent>
         </Sheet>
         
-        <Link href="/" className="flex items-center gap-2 font-bold lg:hidden">
+        <Link href="/" className="flex items-center gap-2 font-bold">
           <span className="text-lg">AIPG Art</span>
         </Link>
 
-        <div className="w-9 lg:hidden" /> {/* Spacer for centering */}
+        <div className="w-9" /> {/* Spacer for centering */}
       </div>
     </header>
   )
