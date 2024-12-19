@@ -15,7 +15,22 @@ export default function GeneratePage() {
   const [currentImages, setCurrentImages] = useState<Image[]>([])
   const [generationHistory, setGenerationHistory] = useState<Image[]>([])
 
-  const handleGenerate = async (formData: any) => {
+  const handleGenerate = async (formData: {
+    prompt: string
+    seed: number
+    model: string
+    steps: number
+    sampler: string
+    cfgScale: number
+    width: number
+    height: number
+    clipSkip: number
+    denoisingStrength: number
+    karras: boolean
+    hiResFix: boolean
+    isPublic: boolean
+    sourceImage?: File
+  }) => {
     setIsGenerating(true)
     // Simulate API call
     setTimeout(() => {

@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ImageCard } from "@/components/image-card"
-import { type Image } from "@/types"
 
 // Mock user data
 const mockUser = {

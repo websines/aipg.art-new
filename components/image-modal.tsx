@@ -123,7 +123,10 @@ export function ImageModal({
                   </div>
                 </div>
                 <Separator />
-                <ImageComments imageId={image.id} />
+                <div>
+                  <h3 className="mb-4 font-semibold">Comments</h3>
+                  <ImageComments />
+                </div>
               </div>
             </ScrollArea>
           </div>

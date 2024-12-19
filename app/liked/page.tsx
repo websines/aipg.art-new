@@ -50,7 +50,7 @@ export default function LikedImagesPage() {
       <div>
         <h1 className="text-2xl font-bold">Liked Images</h1>
         <p className="text-muted-foreground">
-          Images you've liked will appear here
+          Images you&apos;ve liked will appear here
         </p>
       </div>
       
@@ -66,7 +66,9 @@ export default function LikedImagesPage() {
         ))}
         {images.length === 0 && (
           <div className="col-span-full text-center py-12">
-            <p className="text-muted-foreground">No liked images yet</p>
+            <p className="text-sm text-muted-foreground">
+              You haven&apos;t liked any images yet
+            </p>
           </div>
         )}
       </div>
